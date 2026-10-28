@@ -1,0 +1,77 @@
+:root,
+[data-bs-theme="light"] {
+    --tblr-primary: #215c3a;
+    --tblr-primary-rgb: 33, 92, 58;
+    --tblr-success: #215c3a;
+    --tblr-success-rgb: 33, 92, 58;
+    --tblr-warning: #ddaa38;
+    --tblr-warning-rgb: 221, 170, 56;
+    --tblr-warning-fg: #342a15;
+    --tblr-body-bg: #f5f8f2;
+    --tblr-body-bg-rgb: 245, 248, 242;
+    --tblr-body-color: #25352a;
+    --tblr-border-color: #e3eae1;
+    --tblr-link-color: #215c3a;
+    --tblr-link-hover-color: #174629;
+    --tblr-bg-surface: #fff;
+    --tblr-bg-surface-secondary: #f5f8f2;
+    --tblr-bg-surface-tertiary: #edf4e9;
+    --tblr-font-sans-serif: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body.theme-cropcircle {
+    background: #f5f8f2;
+    color: #25352a;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.theme-cropcircle .card,
+.theme-cropcircle .card-custom {
+    border-color: #e3eae1;
+    border-radius: 1rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(33, 62, 43, .055);
+}
+
+.theme-cropcircle .card-hover:hover {
+    border-color: #cad9cb;
+    box-shadow: 0 0.75rem 1.75rem rgba(33, 62, 43, .11);
+}
+
+.theme-cropcircle .table thead th {
+    color: #64736a;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .035em;
+    text-transform: uppercase;
+}
+
+.theme-cropcircle .form-control:focus,
+.theme-cropcircle .form-select:focus {
+    border-color: #6b9a78;
+    box-shadow: 0 0 0 .2rem rgba(33, 92, 58, .14);
+}
+
+.theme-cropcircle .btn-primary,
+.theme-cropcircle .btn-success,
+.theme-cropcircle .btn-cropcircle {
+    --tblr-btn-bg: #215c3a;
+    --tblr-btn-border-color: #215c3a;
+    --tblr-btn-hover-bg: #174629;
+    --tblr-btn-hover-border-color: #174629;
+}
+
+.theme-cropcircle .btn-warning { color: #342a15; }
+.theme-cropcircle .portal-sidebar { background: linear-gradient(180deg, #fff 0%, #f5f8f2 100%); }
+.theme-cropcircle .portal-sidebar .nav-link.active { color: #174629; background: #eaf2e8; }
+.theme-cropcircle .portal-sidebar .nav-link.active i { color: #215c3a; }
+.theme-cropcircle .navbar-cropcircle { border-bottom-color: #e3eae1; }
+.theme-cropcircle .footer-cropcircle { border-top-color: #215c3a; }
+
+@media (max-width: 767.98px) {
+    .portal-main { padding-inline: 1rem !important; }
+    .table-responsive { border-radius: .75rem; }
+}
+
+.product-card-click { cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; }
+.product-card-click:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(33, 92, 58, .12) !important; }
+.product-card-click .stretched-link { color: inherit; }

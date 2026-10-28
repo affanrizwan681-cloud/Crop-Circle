@@ -1,0 +1,582 @@
+/* CropCircle visual refresh. Content selectors deliberately exclude the locked home hero and testimonial section. */
+.theme-cropcircle {
+    --cc-forest: #153e2a;
+    --cc-green: #215c3a;
+    --cc-green-dark: #174629;
+    --cc-green-soft: #eaf3e8;
+    --cc-mint: #eef6ee;
+    --cc-cream: #f5f8f2;
+    --cc-paper: #fff;
+    --cc-ink: #20332a;
+    --cc-muted: #68786e;
+    --cc-line: #e1e9e1;
+    --cc-gold: #d7a63b;
+    --cc-shadow-sm: 0 5px 18px rgba(24, 55, 37, .06);
+    --cc-shadow-md: 0 14px 36px rgba(24, 55, 37, .1);
+    --cc-radius: 18px;
+}
+
+/* Shared shell */
+.theme-cropcircle .navbar-cropcircle {
+    background: rgba(250, 253, 250, .88);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    backdrop-filter: blur(18px) saturate(150%);
+}
+
+.theme-cropcircle .navbar-cropcircle .nav-link {
+    border-radius: 999px;
+    transition: color .2s ease, background-color .24s ease, transform .24s ease;
+}
+
+.theme-cropcircle .navbar-cropcircle .nav-link:hover,
+.theme-cropcircle .navbar-cropcircle .nav-link.active {
+    background: rgba(224, 239, 225, .78);
+    transform: translateY(-1px);
+}
+
+.theme-cropcircle .footer-cropcircle {
+    margin-top: 5rem;
+    border-top: 0;
+    background: radial-gradient(ellipse at 15% 0%, #204a33 0, #10291c 56%, #0b2117 100%);
+}
+
+.theme-cropcircle .footer-cropcircle a:hover { color: #d9efdd; }
+.theme-cropcircle .footer-heading { color: #f2f7f1; }
+
+.theme-cropcircle .portal-sidebar {
+    border-color: var(--cc-line);
+    background: linear-gradient(180deg, #fff 0%, #f4f8f2 100%);
+    box-shadow: 8px 0 28px rgba(26, 67, 50, .055);
+}
+
+.theme-cropcircle .portal-sidebar .nav-link { min-height: 42px; }
+.theme-cropcircle .portal-sidebar .nav-link.active { box-shadow: inset 3px 0 var(--cc-green); }
+
+/* Public pages, catalog, accounts, and portal content. The hero and testimonial sections are not matched. */
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .card {
+    border: 1px solid var(--cc-line) !important;
+    border-radius: var(--cc-radius) !important;
+    box-shadow: var(--cc-shadow-sm) !important;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-hover,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .card-hover {
+    transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-hover:hover,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .card-hover:hover {
+    border-color: #c9dccb !important;
+    box-shadow: var(--cc-shadow-md) !important;
+    transform: translateY(-3px);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) h1,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) h1,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .page-title,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .page-title {
+    color: var(--cc-forest);
+    letter-spacing: -.035em;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) h2,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) h2 {
+    color: var(--cc-forest);
+    letter-spacing: -.025em;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .breadcrumb,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .breadcrumb { --tblr-breadcrumb-divider-color: #a1b0a5; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .breadcrumb a,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .breadcrumb a { color: var(--cc-green); font-weight: 650; }
+
+/* Product and farmer cards */
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click {
+    overflow: hidden;
+    background: var(--cc-paper);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click img,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click img { transition: transform .4s ease; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover img,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover img { transform: scale(1.035); }
+
+/* Forms and actions */
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-control,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-select {
+    min-height: 42px;
+    border-color: #d8e3d9;
+    border-radius: 10px;
+    color: var(--cc-ink);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) textarea.form-control,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) textarea.form-control { min-height: 112px; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control:focus,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select:focus,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-control:focus,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-select:focus {
+    border-color: #76a282;
+    box-shadow: 0 0 0 .22rem rgba(33, 92, 58, .12);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-label,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-label { color: #41594a; font-weight: 650; }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .btn,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .btn { transition: transform .16s ease, box-shadow .16s ease, background-color .16s ease; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .btn-cropcircle,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .btn-cropcircle {
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--cc-green), #2e7048);
+    box-shadow: 0 5px 14px rgba(33, 92, 58, .16);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .btn-cropcircle:hover,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .btn-cropcircle:hover { box-shadow: 0 8px 18px rgba(33, 92, 58, .22); transform: translateY(-1px); }
+
+/* Data tables, badges, alerts, and pagination */
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .table,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .table { --tblr-table-border-color: #e8eee8; color: #33483a; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .table thead th,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .table thead th {
+    padding-block: .8rem;
+    background: #f5f8f3;
+    color: #627369;
+    font-size: .73rem;
+    font-weight: 750;
+    letter-spacing: .055em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .table td,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .table td { vertical-align: middle; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .pagination,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .pagination { gap: 4px; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .page-link,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .page-link { border-radius: 9px !important; color: var(--cc-green); }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .page-item.active .page-link,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .page-item.active .page-link { border-color: var(--cc-green); background: var(--cc-green); color: #fff; }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .alert,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .alert { border-radius: 13px; }
+
+/* Secondary home sections */
+.theme-cropcircle main > section:not(.cc-home-hero):not(.cc-testimonials) { position: relative; }
+.theme-cropcircle main > section:not(.cc-home-hero):not(.cc-testimonials) > .container > .d-flex h2 { color: var(--cc-forest); }
+.theme-cropcircle main > section:not(.cc-home-hero):not(.cc-testimonials) .card { background: #fff; }
+
+@media (max-width: 991.98px) {
+    .theme-cropcircle .footer-cropcircle { margin-top: 3.5rem; }
+}
+
+@media (max-width: 767.98px) {
+    .theme-cropcircle .portal-sidebar { box-shadow: 0 5px 18px rgba(26, 67, 50, .05); }
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-body,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .card-body { padding: 1.1rem !important; }
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .table,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .table { font-size: .86rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-cropcircle .portal-sidebar *,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) *,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) * { transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Motion and liquid-glass interactions for all non-protected page content. */
+.theme-cropcircle .cc-motion-ready {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(.99);
+    transition: opacity .68s cubic-bezier(.2,.7,.2,1), transform .68s cubic-bezier(.2,.7,.2,1);
+    transition-delay: var(--cc-motion-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.theme-cropcircle .cc-motion-ready.cc-motion-visible { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+.theme-cropcircle .portal-sidebar.cc-motion-ready { transform: translate3d(-14px, 0, 0); }
+.theme-cropcircle .portal-sidebar.cc-motion-ready.cc-motion-visible { transform: translate3d(0, 0, 0); }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface {
+    --cc-glass-x: 50%;
+    --cc-glass-y: 0%;
+    --cc-glass-shine: .34;
+    position: relative;
+    border: 1px solid rgba(255,255,255,.82) !important;
+    background-image:
+        radial-gradient(circle at var(--cc-glass-x) var(--cc-glass-y), rgba(255,255,255,var(--cc-glass-shine)), transparent 52%),
+        linear-gradient(145deg, rgba(255,255,255,.94), rgba(246,250,246,.78)) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+    backdrop-filter: blur(18px) saturate(145%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 10px 28px rgba(24,55,37,.075) !important;
+    transition: border-color .28s ease, box-shadow .32s ease, transform .32s cubic-bezier(.2,.7,.2,1), background-position .4s ease;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface:hover,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface:hover {
+    --cc-glass-shine: .54;
+    border-color: rgba(255,255,255,.98) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 18px 42px rgba(24,55,37,.13) !important;
+    transform: translateY(-3px);
+}
+
+.theme-cropcircle .portal-sidebar {
+    border-color: rgba(255,255,255,.78);
+    background: linear-gradient(155deg, rgba(255,255,255,.91), rgba(239,247,239,.8));
+    -webkit-backdrop-filter: blur(18px) saturate(145%);
+    backdrop-filter: blur(18px) saturate(145%);
+}
+
+.theme-cropcircle .portal-sidebar .nav-link,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .btn,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .btn,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .nav-link,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .nav-link,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-control,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-select {
+    transition: transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .22s ease, border-color .22s ease, background-color .22s ease;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .btn:active,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .btn:active { transform: scale(.975); }
+.theme-cropcircle main .portal-sidebar .nav-link:hover { transform: translateX(4px); }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control:focus,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select:focus,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-control:focus,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-select:focus { box-shadow: 0 0 0 .24rem rgba(70,132,83,.16), 0 5px 16px rgba(33,92,58,.08); }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click img,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click img { transition: transform .65s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover img,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover img { transform: scale(1.055); filter: saturate(1.08); }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click .badge,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click .badge { transition: transform .28s ease, box-shadow .28s ease; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover .badge,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover .badge { transform: translateY(-2px); box-shadow: 0 5px 12px rgba(26,67,50,.12); }
+
+.theme-cropcircle .footer-cropcircle {
+    background-image: radial-gradient(ellipse at 12% 5%, rgba(94,148,104,.22), transparent 38%), linear-gradient(145deg, #153a28, #0b2117 72%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-cropcircle .navbar-cropcircle .nav-link,
+    .theme-cropcircle .cc-motion-ready,
+    .theme-cropcircle .portal-sidebar,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .btn,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .nav-link,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click img,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click .badge,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .btn,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .nav-link,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-control,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-select,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click img,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .product-card-click .badge {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+        will-change: auto !important;
+    }
+}
+
+/* Glass treatment for controls, menus, overlays, and statistic tiles. */
+.theme-cropcircle .navbar-cropcircle .dropdown-menu,
+.theme-cropcircle .portal-sidebar .dropdown-menu {
+    border: 1px solid rgba(255,255,255,.86);
+    border-radius: 15px;
+    background: rgba(250,253,250,.88);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%);
+    box-shadow: 0 18px 42px rgba(20,55,34,.15), inset 0 1px rgba(255,255,255,.85);
+}
+
+.theme-cropcircle .navbar-cropcircle .dropdown-item { border-radius: 9px; transition: background-color .2s ease, transform .2s ease; }
+.theme-cropcircle .navbar-cropcircle .dropdown-item:hover { background: rgba(225,240,226,.78); transform: translateX(2px); }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-control,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .form-select {
+    background-color: rgba(255,255,255,.78);
+    -webkit-backdrop-filter: blur(10px) saturate(130%);
+    backdrop-filter: blur(10px) saturate(130%);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .input-group-text,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .input-group-text {
+    border-color: rgba(211,226,214,.8);
+    background: rgba(247,251,247,.78);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .modal-content,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .modal-content {
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.82);
+    border-radius: 20px;
+    background: rgba(250,253,250,.9);
+    -webkit-backdrop-filter: blur(22px) saturate(145%);
+    backdrop-filter: blur(22px) saturate(145%);
+    box-shadow: 0 26px 80px rgba(12,38,22,.24), inset 0 1px rgba(255,255,255,.8);
+}
+
+.theme-cropcircle .modal.fade .modal-dialog { transform: translateY(12px) scale(.975); transition: transform .32s cubic-bezier(.2,.7,.2,1); }
+.theme-cropcircle .modal.show .modal-dialog { transform: translateY(0) scale(1); }
+.theme-cropcircle .modal-header,
+.theme-cropcircle .modal-footer { border-color: rgba(210,226,212,.72); background: rgba(255,255,255,.32); }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .badge,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .badge {
+    border: 1px solid rgba(255,255,255,.48);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .nav-tabs,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .nav-tabs {
+    padding: 4px;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 13px;
+    background: rgba(238,246,239,.72);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .nav-tabs .nav-link,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .nav-tabs .nav-link { border-radius: 9px; }
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .nav-tabs .nav-link.active,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .nav-tabs .nav-link.active { border-color: rgba(255,255,255,.85); background: rgba(255,255,255,.88); box-shadow: 0 3px 12px rgba(24,55,37,.08); }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .alert,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .alert {
+    border: 1px solid rgba(255,255,255,.72);
+    background-color: rgba(255,255,255,.8);
+    -webkit-backdrop-filter: blur(13px) saturate(135%);
+    backdrop-filter: blur(13px) saturate(135%);
+    box-shadow: 0 8px 24px rgba(24,55,37,.075);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .cc-glass-mini,
+.theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .cc-glass-mini {
+    border: 1px solid rgba(255,255,255,.92);
+    background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(243,249,243,.68)) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(140%);
+    backdrop-filter: blur(15px) saturate(140%);
+    box-shadow: inset 0 1px rgba(255,255,255,.9), 0 8px 22px rgba(24,55,37,.08);
+}
+
+.cc-count-up { font-variant-numeric: tabular-nums; }
+
+@media (max-width: 767.98px) {
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface,
+    .theme-cropcircle .portal-sidebar,
+    .theme-cropcircle .navbar-cropcircle .dropdown-menu,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .modal-content,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .modal-content { -webkit-backdrop-filter: blur(12px) saturate(135%); backdrop-filter: blur(12px) saturate(135%); }
+}
+
+@supports not ((backdrop-filter: blur(1px))) {
+    .theme-cropcircle .navbar-cropcircle,
+    .theme-cropcircle .portal-sidebar,
+    .theme-cropcircle .navbar-cropcircle .dropdown-menu,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .modal-content,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .modal-content,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .cc-glass-mini,
+    .theme-cropcircle main .portal-main > :not(.cc-home-hero):not(.cc-testimonials) .cc-glass-mini { background-color: rgba(255,255,255,.96) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-cropcircle .navbar-cropcircle .dropdown-item,
+    .theme-cropcircle .modal.fade .modal-dialog { transition: none !important; transform: none !important; }
+}
+
+/* Premium marketplace refinements: scoped away from the protected home hero and reviews path. */
+.theme-cropcircle {
+    --cc-glass-bg: rgba(255,255,255,.76);
+    --cc-glass-edge: rgba(255,255,255,.88);
+    --cc-glass-shadow: 0 18px 50px rgba(23,61,39,.10);
+    --cc-motion-ease: cubic-bezier(.2,.72,.18,1);
+}
+
+.theme-cropcircle .navbar-cropcircle {
+    border-bottom-color: rgba(255,255,255,.78);
+    background: linear-gradient(115deg, rgba(255,255,255,.91), rgba(245,250,245,.8));
+    box-shadow: 0 8px 26px rgba(23,61,39,.055);
+}
+
+.theme-cropcircle .navbar-cropcircle .navbar-toggler,
+.theme-cropcircle .navbar-cropcircle .nav-link,
+.theme-cropcircle .portal-sidebar .nav-link {
+    transition: color .22s ease, background-color .22s ease, box-shadow .22s ease, transform .22s var(--cc-motion-ease);
+}
+
+.theme-cropcircle .navbar-cropcircle .dropdown-menu {
+    border-color: var(--cc-glass-edge);
+    background: rgba(250,253,250,.92);
+    box-shadow: var(--cc-glass-shadow), inset 0 1px rgba(255,255,255,.9);
+}
+
+/* Keep visual changes inside non-protected page content and authenticated portal panels. */
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card,
+.theme-cropcircle main .portal-main .card {
+    background-color: var(--cc-glass-bg);
+    -webkit-backdrop-filter: blur(14px) saturate(135%);
+    backdrop-filter: blur(14px) saturate(135%);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-header,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-footer,
+.theme-cropcircle main .portal-main .card-header,
+.theme-cropcircle main .portal-main .card-footer {
+    border-color: rgba(218,231,220,.76);
+    background: rgba(255,255,255,.38);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click,
+.theme-cropcircle main .portal-main .product-card-click,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-hover,
+.theme-cropcircle main .portal-main .card-hover {
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform .34s var(--cc-motion-ease), box-shadow .34s ease, border-color .34s ease;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface.cc-card-pressed,
+.theme-cropcircle main .portal-main .cc-glass-surface.cc-card-pressed {
+    transform: scale(.99);
+    box-shadow: 0 7px 18px rgba(23,61,39,.12) !important;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover,
+.theme-cropcircle main .portal-main .product-card-click:hover,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-hover:hover,
+.theme-cropcircle main .portal-main .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px rgba(23,61,39,.14) !important;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click > img,
+.theme-cropcircle main .portal-main .product-card-click > img,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-img-top,
+.theme-cropcircle main .portal-main .card-img-top {
+    display: block;
+    object-fit: cover;
+    transition: transform .7s var(--cc-motion-ease), filter .45s ease;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover > img,
+.theme-cropcircle main .portal-main .product-card-click:hover > img,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card:hover > .card-img-top,
+.theme-cropcircle main .portal-main .card:hover > .card-img-top {
+    transform: scale(1.035);
+    filter: saturate(1.06);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .table-responsive,
+.theme-cropcircle main .portal-main .table-responsive {
+    border: 1px solid rgba(222,233,223,.82);
+    border-radius: 14px;
+    background: rgba(255,255,255,.72);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .table,
+.theme-cropcircle main .portal-main .table { margin-bottom: 0; }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select,
+.theme-cropcircle main .portal-main .form-control,
+.theme-cropcircle main .portal-main .form-select {
+    background-color: rgba(255,255,255,.82);
+    border-color: rgba(207,222,210,.95);
+    transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-control:focus,
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .form-select:focus,
+.theme-cropcircle main .portal-main .form-control:focus,
+.theme-cropcircle main .portal-main .form-select:focus {
+    background-color: #fff;
+    border-color: #78a584;
+    box-shadow: 0 0 0 .23rem rgba(33,92,58,.14), 0 7px 20px rgba(33,92,58,.07);
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .btn:focus-visible,
+.theme-cropcircle main .portal-main .btn:focus-visible,
+.theme-cropcircle .navbar-cropcircle :focus-visible,
+.theme-cropcircle .portal-sidebar :focus-visible {
+    outline: 3px solid rgba(221,170,56,.78);
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .btn:active,
+.theme-cropcircle main .portal-main .btn:active { transform: scale(.98); }
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .modal-content,
+.theme-cropcircle main .portal-main .modal-content {
+    border: 1px solid rgba(255,255,255,.88);
+    background: rgba(251,253,250,.95);
+    box-shadow: 0 30px 90px rgba(12,38,22,.25), inset 0 1px rgba(255,255,255,.9);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+}
+
+@supports not ((backdrop-filter: blur(1px))) {
+    .theme-cropcircle .navbar-cropcircle,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card,
+    .theme-cropcircle main .portal-main .card,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .modal-content,
+    .theme-cropcircle main .portal-main .modal-content {
+        background-color: #fff;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .theme-cropcircle .navbar-cropcircle,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card,
+    .theme-cropcircle main .portal-main .card {
+        -webkit-backdrop-filter: blur(9px) saturate(125%);
+        backdrop-filter: blur(9px) saturate(125%);
+    }
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .cc-glass-surface.cc-card-pressed,
+.theme-cropcircle main .portal-main .cc-glass-surface.cc-card-pressed {
+    transform: scale(.99);
+    box-shadow: 0 7px 18px rgba(23,61,39,.12) !important;
+}
+
+.theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .product-card-click:hover,
+    .theme-cropcircle main .portal-main .product-card-click:hover,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) .card-hover:hover,
+    .theme-cropcircle main .portal-main .card-hover:hover { transform: translateY(-2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-cropcircle .navbar-cropcircle *,
+    .theme-cropcircle main > :not(.portal-shell):not(.cc-home-hero):not(.cc-testimonials) *,
+    .theme-cropcircle main .portal-main * {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+
